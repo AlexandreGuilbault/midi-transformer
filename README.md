@@ -1,7 +1,7 @@
 # midi-transformer
 Transformer model to create midi songs
 
-#### Data used
+### Data used
 **Maestro v3.0** (all)
 > Hawthorne, C., Stasyuk, A., Roberts, A., Simon, I., Huang, C.-Z. A., Dieleman, S., Elsen, E., Engel, J., & Eck, D. (2019). Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset. In International Conference on Learning Representations. Retrieved from https://openreview.net/forum?id=r1lYRjC9F7
 
@@ -12,7 +12,7 @@ Transformer model to create midi songs
 > Ferreira, L. N., Lelis, L. H. S., & Whitehead, J. (2020). Computer-Generated Music for Tabletop Role-Playing Games. In Proceedings of the 16th AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE'20). Retrieved from https://github.com/lucasnfe/adl-piano-midi
 
 
-#### Encoding
+### Encoding
 Each note is being encoded in only three parameters: Length, Velocity and Note
 
 **Length**  
@@ -25,7 +25,7 @@ Normally encoded 0 to 127 in midi, simply normalized to 0 to 1 as an input to th
 Normally encoded 0 to 127 in midi, we add an extra input for wait time. It then
 goes through an embedding layer to reduce from 128 one-hot encoding to fewer parameters (64 by default).
 
-###### Example
+##### Example
 The following midi sequence:  
 >0, 144, 60, 100 | Time 0, Note On,  C (60), velocity 100  
 >0, 144, 64, 100 | Time 0, Note On, E (64), velocity 100  
@@ -42,10 +42,10 @@ Would become
   
 And then normalize the length (aka time) and the velocity from 0 to 1 and embbed the note to 64 parameters.  
 
-#### Model Architecture
+### Model Architecture
 Given access to "only" 4 P100 GPUs, the size of the model has been restricted to 2M parameters and consists of 14 relative attention layers with 12 heads and an embedding size of 64 for the note, length and velocity.
 
-#### Help
+### Help
 If you have access to more processing power, would be interesting to train this model further or increase it's depth!
 
 Enjoy!
